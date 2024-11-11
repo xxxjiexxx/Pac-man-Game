@@ -1,0 +1,110 @@
+/* Basic CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Score display styling */
+.score-board {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+/* Container for the maze */
+#maze {
+    display: grid;
+    background-color: #222;
+    border: 4px solid #333;
+    position: relative;
+}
+
+/* Wall styling */
+.wall {
+    background: url("../img/wall.webp") no-repeat center/cover;
+    /* background: url("../img/wall1.png") no-repeat center/cover; */
+}
+
+/* Dot styling */
+.dot {
+    background-color: #f7e983;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Pacman body with background image */
+.pacman {
+    position: absolute;
+    background-image: url("../img/pacman.webp"); /* Retains the background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%; /* Makes Pacman circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Pacman mouth animation */
+.pacman-mouth {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #222222; /* Color of the mouth */
+    clip-path: polygon(30% 30%, 100% 0, 100% 100%); /* Initial mouth shape */
+    animation: pacmanMouth 0.4s infinite;
+}
+/* Pacman mouth open-close animation */
+@keyframes pacmanMouth {
+    0%, 100% {
+        clip-path: polygon(50% 50%, 100% 0%, 100% 100%); /* Mouth open */
+    }
+    60% {
+        clip-path: polygon(60% 60%, 100% 60%, 100% 60%); /* Mouth closed */
+    }
+}
+
+/* Ghost styles */
+.ghost {
+    position: absolute;
+    transition: top 0.1s, left 0.1s;
+}
+
+/* Design 1 - Classic Red Ghost */
+.ghost.red {
+    background: url("../img/ghost_red.png") no-repeat center/cover;
+}
+
+/* Design 2 - Blue Ghost */
+.ghost.blue {
+    background: url("../img/ghost_blue.png") no-repeat center/cover;
+}
+
+/* Design 3 - Pink Ghost */
+.ghost.pink {
+    background: url("../img/ghost_pink.png") no-repeat center/cover;
+}
